@@ -21,7 +21,7 @@ public class DetailsController {
     }
     @GetMapping
     public String detail(Model model) {
-        model.addAttribute("films",filmService.showAllMovies());
+        model.addAttribute("films",filmService.getAllMovies());
             return "liste";
     }
 }

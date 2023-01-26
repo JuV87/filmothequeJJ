@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface FilmService {
 	
-	Film showMovie(long id);
+	Film getMovie(long id);
 
-	List<Film> showAllMovies();
+	List<Film> getAllMovies();
 	
 	Film addMovie();
 

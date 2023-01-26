@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Details</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+<meta charset="UTF-8">
+<title>Details</title>
+<link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-<div class="movie-container" th:each="film : ${films}">
-    <div class="movie-info">
-        <a th:href="@{/details/{id}(id=${film.id})}"><h2 th:text="${film.titre}"></h2></a>
-        <p>Release Date: <span th:text="${film.annee}"></span></p>
-<!--        <p>Starring: <span th:text="${film.participant}"></span></p>-->
-<!--        <p>Genre: <span th:text="${film.genre}"></span></p>-->
-        <p>Duration: <span th:text="${film.duree}"></span></p>
-        <p>Synopsis: <span th:text="${film.synopsis}"></span></p>
-    </div>
-</div>
+	<div class="movie-container" th:each="film : ${films}">
+		<div class="movie-info">
+			<a th:href="@{/details/{id}(id=${film.id})}"><h2
+					th:text="${film.titre}"></h2></a>
+			<p>
+				Release Date: <span th:text="${film.annee}"></span>
+			</p>
+			<!--        <p>Starring: <span th:text="${film.participant}"></span></p>-->
+			<!--        <p>Genre: <span th:text="${film.genre}"></span></p>-->
+			<p>
+				Duration: <span th:text="${film.duree}"></span>
+			</p>
+			<p>
+				Synopsis: <span th:text="${film.synopsis}"></span>
+			</p>
+		</div>
+	</div>
+	<button onclick="history.back();">Retour</button>
 </body>
