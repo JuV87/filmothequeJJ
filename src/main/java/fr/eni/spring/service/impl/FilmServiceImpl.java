@@ -4,24 +4,36 @@ import fr.eni.spring.model.Film;
 import fr.eni.spring.service.FilmService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class FilmServiceImpl implements FilmService {
 
-	@Override
-	public Film showMovie(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private List<Film> listFilm = new ArrayList<Film>();
 
-	@Override
-	public Film showAllMovies() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public FilmServiceImpl() {
+        Film film = new Film(0, "Harry Pouter", 2001, 140, "Je suis un synopsis");
+        Film film2 = new Film(1, "Le seigneur des anneaux", 2003, 300, "Je suis un synopsis intéressant");
 
-	@Override
-	public Film addMovie() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        listFilm.add(film);
+        listFilm.add(film2);
+    }
+
+    @Override
+    public Film showMovie(long id) {
+        // TODO Boucle for pour retrouver le film avec l'id
+        return listFilm.get((int) id);
+    }
+
+    @Override
+    public List<Film> showAllMovies() {
+        return listFilm;
+    }
+
+    @Override
+    public Film addMovie() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
