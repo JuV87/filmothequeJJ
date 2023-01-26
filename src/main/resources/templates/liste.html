@@ -8,7 +8,7 @@
 <body>
 <div class="movie-container" th:each="film : ${films}">
     <div class="movie-info">
-        <a href="details.html"><h2 th:text="${film.titre}"></h2></a>
+        <a th:href="@{/details/{id}(id=${film.id})}"><h2 th:text="${film.titre}"></h2></a>
         <p>Release Date: <span th:text="${film.annee}"></span></p>
 <!--        <p>Starring: <span th:text="${film.participant}"></span></p>-->
 <!--        <p>Genre: <span th:text="${film.genre}"></span></p>-->
@@ -17,4 +17,3 @@
     </div>
 </div>
 </body>
-</html>

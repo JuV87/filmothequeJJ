@@ -9,6 +9,7 @@ public class AvisController {
 
     @Autowired
     private AvisService avisService;
+    
     public AvisController(AvisService avisService){
         this.avisService = avisService;
     }

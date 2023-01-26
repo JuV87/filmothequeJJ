@@ -13,6 +13,11 @@ public class Film {
         this.synopsis = synopsis;
     }
     
+    public Film(long id) {
+        this.id = id;
+
+    }
+    
 
 	public long id;
     public String titre;
