@@ -6,16 +6,15 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-<div class="movie-container">
-  <img th:src="@{movie-poster.jpg}" alt="Movie Poster">
-  <div class="movie-info">
-    <h2 th:text="${Film.titre}"></h2>
-      <p>Release Date: <span th:text="${Film.annee}"></span></p>
-      <p>Starring: <span th:text="${Film.participant}"></span></p>
-    <p>Genre: <span th:text="${Film.genre}"></span></p>
-    <p>Duration: <span th:text="${Film.duree}"></span></p>
-    <p>Synopsis: <span th:text="${Film.synopsis}"></span></p>
-  </div>
+<div class="movie-container" th:each="film : ${film}">
+    <div class="movie-info">
+        <h2 th:text="${film.titre}"></h2>
+        <p>Release Date: <span th:text="${film.annee}"></span></p>
+        <p>Starring: <span th:text="${film.participant}"></span></p>
+        <p>Genre: <span th:text="${film.genre}"></span></p>
+        <p>Duration: <span th:text="${film.duree}"></span></p>
+        <p>Synopsis: <span th:text="${film.synopsis}"></span></p>
+    </div>
 </div>
 
 </body>
