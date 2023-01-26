@@ -5,9 +5,13 @@ import lombok.Data;
 @Data
 public class Film {
 
-    public Film(int i, String string, int j, int k, String string2) {
-		// TODO Auto-generated constructor stub
-	}
+    public Film(long id, String titre, int annee, int duree, String synopsis) {
+        this.id = id;
+        this.titre = titre;
+        this.annee = annee;
+        this.duree = duree;
+        this.synopsis = synopsis;
+    }
     
 
 	public long id;
