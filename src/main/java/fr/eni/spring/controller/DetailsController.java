@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import fr.eni.spring.model.Film;
 
 @Controller
+@RequestMapping("/details")
 public class DetailsController {
 
     @GetMapping
@@ -20,7 +21,7 @@ public class DetailsController {
         List<Film> listFilm = new ArrayList<Film>();
             listFilm.add(film);
             listFilm.add(film2);
-        model.addAttribute("film",listFilm);
+        model.addAttribute("films",listFilm);
             return "details";
     }
 }

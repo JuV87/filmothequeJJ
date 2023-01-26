@@ -10,9 +10,9 @@ public class Film {
 	}
     
 
-	public long id = 0;
-    public String titre = "";
-    public int annee = 0;
-    public int duree = 0;
-    public String synopsis = "";
+	public long id;
+    public String titre;
+    public int annee;
+    public int duree;
+    public String synopsis;
 }
