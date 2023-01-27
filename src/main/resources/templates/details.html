@@ -10,58 +10,51 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/stylesheet.css" type="text/css">
+<link rel="stylesheet" href="/css/stylesheet.css" type="text/css">
 </head>
-<div class="bg-dark grid">
-	<a href="http://localhost:8080/"><img src="http://localhost:8080/icon_512x512.png"
+<div class="contenu-du-haut text-light">
+<div class="grid" id="img1">
+	<a href="http://localhost:8080/"><img src="icon_512x512.png"
 		width="85"></a>
 	<div class="text-light text-center p-2">
-		<h1>La Filmothèque de JJ</h1>
+		<h1><strong>La Filmothèque de JJ</strong></h1>
 	</div>
 </div>
-<body>
-<div class="lol">
-<nav class="navbar navbar-expand-lg navbar-light bg-danger">
-  <!-- Container wrapper -->
-  <div class="container-fluid">
-    <!-- Toggle button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarCenteredExample"
-      aria-controls="navbarCenteredExample"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
+	<nav class="navbar navbar-expand-lg">
+		<!-- Container wrapper -->
+		<div class="container-fluid text-light">
+			<!-- Toggle button -->
+			<button class="navbar-toggler" type="button"
+				data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample"
+				aria-controls="navbarCenteredExample" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
+			</button>
 
-    <!-- Collapsible wrapper -->
- <div
-      class="collapse navbar-collapse justify-content-center"
-      id="navbarCenteredExample"
-    >
-      <!-- Left links -->
-      <ul class="navbar-nav mb-3 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="http://localhost:8080/" style="font-size:20px;">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/liste" style="font-size:20px;">Liste des films</a>
-        </li>
-
-      </ul>
-      <!-- Left links -->
-    </div>
-    <!-- Collapsible wrapper -->
-  </div>
-  <!-- Container wrapper -->
-</nav>
-</div>
+			<!-- Collapsible wrapper -->
+			<div class="collapse navbar-collapse text-light justify-content-center"
+				id="navbarCenteredExample">
+				<!-- Left links -->
+				<ul class="navbar-nav mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active text-light"
+						aria-current="page" href="http://localhost:8080/"
+						style="font-size: 20px;">Accueil</a></li>
+					<li class="nav-item"><a class="nav-link text-light"
+						href="http://localhost:8080/liste" style="font-size: 20px;">Liste
+							des films</a></li>
+				</ul>
+				<!-- Left links -->
+			</div>
+			<!-- Collapsible wrapper -->
+		</div>
+		<!-- Container wrapper -->
+	</nav>
+	</div>
+	<br>
 	<div class="movie-container">
-		<div class="movie-info p-5">
+		<div class="movie-info contenu p-3">
 			<h2 th:text="${film.titre}"></h2>
+			<hr style="width: 15%;">
 			<br>
 			<p>
 				<strong>Date de sortie : </strong><span th:text="${film.annee}"></span>
@@ -79,14 +72,15 @@
 			<button class="btn btn-primary" onclick="history.back();">RETOUR</button>
 		</div>
 	</div>
-   <div id="footer">
-	<footer class="bg-dark p-1">
+	<div id="footer">
+		<footer class="bg-dark p-1">
 			<script
 				src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
 				integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 				crossorigin="anonymous"></script>
-				     <p class="text-light text-center p-4">2023 Copyright © JJ Company. Tout droits réservés.</p>
-	</footer>
+			<p class="text-light text-center p-4">2023 Copyright © JJ
+				Company. Tout droits réservés.</p>
+		</footer>
 	</div>
 </body>
 </html>
