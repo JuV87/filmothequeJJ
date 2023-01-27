@@ -8,12 +8,12 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
-
+<link rel="stylesheet" href="/css/stylesheet.css" type="text/css">
 <meta charset="UTF-8">
 <title>Accueil</title>
 
 </head>
-<div class="bg-dark grid">
+<div class="bg-dark grid" id="img1">
 	<a href="http://localhost:8080/"><img src="icon_512x512.png"
 		width="85"></a>
 	<div class="text-light text-center p-2">
@@ -21,21 +21,80 @@
 	</div>
 </div>
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+		<!-- Container wrapper -->
+		<div class="container-fluid">
+			<!-- Toggle button -->
+			<button class="navbar-toggler" type="button"
+				data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample"
+				aria-controls="navbarCenteredExample" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
+			</button>
+
+			<!-- Collapsible wrapper -->
+			<div class="collapse navbar-collapse justify-content-center"
+				id="navbarCenteredExample">
+				<!-- Left links -->
+				<ul class="navbar-nav mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="http://localhost:8080/">Accueil</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="http://localhost:8080/liste">Liste des films</a></li>
+
+				</ul>
+				<!-- Left links -->
+			</div>
+			<!-- Collapsible wrapper -->
+		</div>
+		<!-- Container wrapper -->
+	</nav>
 
 	<br>
 	<br>
 	<div class="text-center">
-		<h1>Accueil</h1>
+		<h1>Page d'Accueil</h1>
 		<br>
+		<blockquote class="blockquote text-right">
+  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><a><br></a>
+  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+</blockquote>
+<br><br>
 		<button class="btn btn-danger btn-lg"
 			onclick="window.location.href = '/liste'">Afficher la liste
 			des films</button>
 	</div>
-	<footer>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-			crossorigin="anonymous"></script>
-	</footer>
+	<br><br>
+	<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend lacus vitae sapien elementum luctus. Sed ut tristique mi, eu porttitor eros. Ut tincidunt turpis in dui posuere gravida. Fusce ut tortor leo. Proin at ultricies libero. Praesent facilisis lorem eget iaculis posuere. Integer commodo nulla eget lorem malesuada aliquet. Sed cursus, mi et faucibus aliquet, arcu nisl scelerisque lorem, feugiat posuere mi nisl auctor ligula. Praesent at condimentum lacus. Aliquam vestibulum vestibulum nisi, sed facilisis justo sagittis et. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed interdum ultrices eros, vel auctor lectus aliquam eget. Suspendisse egestas ex turpis, ac pharetra tellus sagittis nec.
+
+Duis condimentum tellus in odio blandit sodales. Etiam vitae nulla metus. Nam faucibus varius sem vitae semper. Nulla et tincidunt purus. Nulla justo diam, tincidunt et ultrices sit amet, bibendum in ex. Suspendisse et consectetur dui. Mauris mi nisl, gravida ac sollicitudin ac, vestibulum a velit. Cras condimentum feugiat consequat. Pellentesque sed dui tincidunt, malesuada mi at, pellentesque velit. In in augue nec dolor feugiat iaculis condimentum vitae turpis. Sed sed sem in velit blandit vehicula. Sed id fermentum felis, at tristique velit. Pellentesque fermentum nibh odio. Nam mauris eros, condimentum eu mauris id, aliquam euismod.
+    </div>
+    <div class="col">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend lacus vitae sapien elementum luctus. Sed ut tristique mi, eu porttitor eros. Ut tincidunt turpis in dui posuere gravida. Fusce ut tortor leo. Proin at ultricies libero. Praesent facilisis lorem eget iaculis posuere. Integer commodo nulla eget lorem malesuada aliquet. Sed cursus, mi et faucibus aliquet, arcu nisl scelerisque lorem, feugiat posuere mi nisl auctor ligula. Praesent at condimentum lacus. Aliquam vestibulum vestibulum nisi, sed facilisis justo sagittis et. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed interdum ultrices eros, vel auctor lectus aliquam eget. Suspendisse egestas ex turpis, ac pharetra tellus sagittis nec.
+
+Duis condimentum tellus in odio blandit sodales. Etiam vitae nulla metus. Nam faucibus varius sem vitae semper. Nulla et tincidunt purus. Nulla justo diam, tincidunt et ultrices sit amet, bibendum in ex. Suspendisse et consectetur dui. Mauris mi nisl, gravida ac sollicitudin ac, vestibulum a velit. Cras condimentum feugiat consequat. Pellentesque sed dui tincidunt, malesuada mi at, pellentesque velit. In in augue nec dolor feugiat iaculis condimentum vitae turpis. Sed sed sem in velit blandit vehicula. Sed id fermentum felis, at tristique velit. Pellentesque fermentum nibh odio. Nam mauris eros, condimentum eu mauris id, aliquam euismod.
+    </div>
+    <div class="col">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend lacus vitae sapien elementum luctus. Sed ut tristique mi, eu porttitor eros. Ut tincidunt turpis in dui posuere gravida. Fusce ut tortor leo. Proin at ultricies libero. Praesent facilisis lorem eget iaculis posuere. Integer commodo nulla eget lorem malesuada aliquet. Sed cursus, mi et faucibus aliquet, arcu nisl scelerisque lorem, feugiat posuere mi nisl auctor ligula. Praesent at condimentum lacus. Aliquam vestibulum vestibulum nisi, sed facilisis justo sagittis et. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed interdum ultrices eros, vel auctor lectus aliquam eget. Suspendisse egestas ex turpis, ac pharetra tellus sagittis nec.
+
+Duis condimentum tellus in odio blandit sodales. Etiam vitae nulla metus. Nam faucibus varius sem vitae semper. Nulla et tincidunt purus. Nulla justo diam, tincidunt et ultrices sit amet, bibendum in ex. Suspendisse et consectetur dui. Mauris mi nisl, gravida ac sollicitudin ac, vestibulum a velit. Cras condimentum feugiat consequat. Pellentesque sed dui tincidunt, malesuada mi at, pellentesque velit. In in augue nec dolor feugiat iaculis condimentum vitae turpis. Sed sed sem in velit blandit vehicula. Sed id fermentum felis, at tristique velit. Pellentesque fermentum nibh odio. Nam mauris eros, condimentum eu mauris id, aliquam euismod.
+    </div>
+  </div>
+</div>
+    <br><br>
+	<div id="footer">
+		<footer class="bg-dark p-1">
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+				crossorigin="anonymous"></script>
+			<p class="text-light text-center p-4">2023 Copyright © JJ
+				Company. Tout droits réservés.</p>
+
+		</footer>
+	</div>
 </body>
 </html>
