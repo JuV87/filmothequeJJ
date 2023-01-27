@@ -8,7 +8,6 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
-
 <meta charset="UTF-8">
 <title>Details</title>
 <link rel="stylesheet" href="/css/stylesheet.css">
@@ -16,12 +15,15 @@
 <body>
 	<div class="contenu-du-haut text-light">
 		<div class="grid" id="img1">
-			<a href="http://localhost:8080/"><img src="icon_512x512.png"
+			<a href="http://localhost:8080/"><img src="http://localhost:8080/icon_512x512.png"
 				width="85"></a>
 			<div class="text-light text-center p-2">
 				<h1>
 					<strong>La Filmothèque de JJ</strong>
 				</h1>
+				<center>
+					<hr style="width:30%">
+				</center>
 			</div>
 		</div>
 		<nav class="navbar navbar-expand-lg">
@@ -54,9 +56,11 @@
 			</div>
 			<!-- Container wrapper -->
 		</nav>
-		<br>
 	</div>
-	<div class="movie-container contenu-liste"
+	<br>
+	<br>
+	<div class="contenu">
+	<div class="movie-container m-3"
 		th:each="film : ${films}">
 		<div class="movie-info">
 			<a th:href="@{/details/{id}(id=${film.id})}"><h2
@@ -77,6 +81,7 @@
 	</div>
 	<div class="p-5">
 		<button class="btn btn-primary" onclick="history.back();">RETOUR</button>
+	</div>
 	</div>
 	<div class="bg-dark p-1">
 		<footer>
