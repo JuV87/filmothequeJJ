@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "Films")
 public class Film {
 
-	public Film(long id, String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur, Participant acteurs, Avis avis) {
+	public Film(long id, @NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur, Participant acteurs, Avis avis) {
 		this.id = id;
 		this.titre = titre;
 		this.annee = annee;
@@ -21,11 +21,11 @@ public class Film {
 		this.synopsis = synopsis;
 		this.genre = genre;
 		this.acteurs = new ArrayList<Participant>();
-		this.avis = new ArrayList<Avis>();
+//		this.avis = new ArrayList<Avis>();
 
 	}
 
-	public Film(long id, String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur) {
+	public Film(long id, @NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur) {
 		this.id = id;
 		this.titre = titre;
 		this.annee = annee;
@@ -33,7 +33,8 @@ public class Film {
 		this.synopsis = synopsis;
 		this.genre = genre;
 		this.realisateur = realisateur;
-		this.avis = new ArrayList<Avis>();
+		this.acteurs = new ArrayList<Participant>();
+//		this.avis = new ArrayList<Avis>();
 
 	}
 
@@ -63,7 +64,8 @@ public class Film {
 
 	private String synopsis;
 
-	private List<Avis> avis;
+//	@ManyToOne
+//	private List<Avis> avis;
 	@ManyToOne
 	private Genre genre;
 	@ManyToOne

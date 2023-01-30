@@ -1,138 +1,183 @@
-<!DOCTYPE>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ajout film</title>
+    <meta charset="UTF-8">
+    <title>Filmothèque</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/stylesheet.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Accueil</title>
 
-  <link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap-theme.min.css}">
-  <script th:src="@{/js/jquery.min.js}"></script>
-  <script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
-
-
-  <style type="text/css">
-    .centre {
-      text-align: center;
-    }
-
-    img {
-      vertical-align: bottom;
-    }
-  </style>
 </head>
 <body>
+<div class="contenu-du-haut text-light">
+    <div class="grid" id="img1">
+        <a href="http://localhost:8080/"><img src="http://localhost:8080/icon_512x512.png"
+                                              width="85"></a>
+        <div class="text-light text-center p-2">
+            <h1>
+                <strong>La Filmothèque de JJ</strong>
+            </h1>
+            <center>
+                <hr style="width:30%">
+            </center>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <!-- Container wrapper -->
+        <div class="container-fluid text-light">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button"
+                    data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample"
+                    aria-controls="navbarCenteredExample" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
 
-<ul class="nav nav-tabs" >
-  <li role="presentation" ><a th:href="@{/films}">Les films</a></li>
-  <li role="presentation" class="active"><a href="#">Ajouter un film</a></li>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse text-light justify-content-center"
+                 id="navbarCenteredExample">
+                <!-- Left links -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active text-light"
+                                            aria-current="page" href="http://localhost:8080/"
+                                            style="font-size: 20px;">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link text-light"
+                                            href="http://localhost:8080/liste" style="font-size: 20px;">Liste
+                        des films</a></li>
+                    <div style="margin-right: 0;">
+                        <li class="nav-item"><a class="nav-link text-light"
+                                                href="http://localhost:8080/liste"
+                                                style="font-size: 20px;">Connexion</a></li>
+                    </div>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+</div>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a th:href="@{/films}">Les films</a></li>
+    <li role="presentation" class="active"><a href="#">Ajouter un film</a></li>
 </ul>
 
 <h1>Nouveau film</h1>
 <div class="container">
 
-  <form class="form-horizontal"
-        th:object="${film}"
-        th:action="@{/films/ajouter}" method="post">
+    <form class="form-horizontal"
+          th:object="${film}"
+          th:action="@{/films/ajouter}" method="post">
 
-    <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
-      <p th:text="#{index.erreurs}">Message d'erreur</p>
-    </div>
+        <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+            <!--      <p th:text="#{index.erreurs}">Message d'erreur</p>-->
+        </div>
 
-    <div class="form-group">
-      <label for="inputTitre" class="col-2 control-label">Titre</label>
-      <input type="text" class="form-control col-8" id="inputTitre"
-             placeholder="Titre"
-             th:field=*{titre}/>
-      <span class="text-danger col-12" th:if="${#fields.hasErrors('titre')}">
+        <div class="form-group">
+            <label for="inputTitre" class="col-2 control-label">Titre</label>
+            <input type="text" class="form-control col-8" id="inputTitre"
+                   placeholder="Titre"
+                   th:field="*{titre}"/>
+            <span class="text-danger col-12" th:if="${#fields.hasErrors('titre')}">
 			<ul>
 				<li th:each="erreur: ${#fields.errors('titre')}" th:text="${erreur}"></li>
 			</ul>
 	</span>
 
-    </div>
-    <div class="form-group">
-      <label for="inputSortie" class="col-sm-2 control-label">Année sortie</label>
-      <input type="number" class="form-control col-8" id="inputSortie"
-             placeholder="Sortie"
-             th:field=*{anneeSortie} />
-      <span class="text-danger col-12" th:if="${#fields.hasErrors('anneeSortie')}">
+        </div>
+        <div class="form-group">
+            <label for="inputSortie" class="col-sm-2 control-label">Année sortie</label>
+            <input type="number" class="form-control col-8" id="inputSortie"
+                   placeholder="Sortie"
+                   th:field="*{annee}"/>
+            <span class="text-danger col-12" th:if="${#fields.hasErrors('annee')}">
 			<ul>
-				<li th:each="erreur: ${#fields.errors('anneeSortie')}" th:text="${erreur}"></li>
+				<li th:each="erreur: ${#fields.errors('annee')}" th:text="${erreur}"></li>
 			</ul>
 		</span>
 
-    </div>
-    <div class="form-group">
-      <div class="col-offset-2 col-10">
-        <label>Réalisateur</label>
-        <select class="form-control" required th:field=*{realisateur} >
-          <option th:each="real:${participants}"
-                  th:value="${real.id}" th:text="${real.prenom + ' ' + real.nom}"></option>
-        </select>
-      </div>
-      <span class="text-danger col-12" th:if="${#fields.hasErrors('realisateur')}">
+        </div>
+        <div class="form-group">
+            <div class="col-offset-2 col-10">
+                <label>Réalisateur</label>
+                <select class="form-control" required th:field="*{realisateur}">
+                    <option th:each="real:${participants}"
+                            th:value="${real.id}" th:text="${real.prenom + ' ' + real.nom}"></option>
+                </select>
+            </div>
+            <span class="text-danger col-12" th:if="${#fields.hasErrors('realisateur')}">
 			<ul>
 				<li th:each="erreur: ${#fields.errors('realisateur')}" th:text="${erreur}"></li>
 			</ul>
 	</span>
 
-    </div>
-    <div class="form-group">
-      <label for="inputSortie" class="col-2 control-label">Durée</label>
-      <div class="col-10">
-        <input type="number" class="form-control" id="inputSortie"
-               placeholder="Durée" min="0"
-               th:field=*{duree} />
-      </div>
-      <span class="text-danger col-12" th:if="${#fields.hasErrors('duree')}">
+        </div>
+        <div class="form-group">
+            <label for="inputSortie" class="col-2 control-label">Durée</label>
+            <div class="col-10">
+                <input type="number" class="form-control" id="inputSortie2"
+                       placeholder="Durée" min="0"
+                       th:field="*{duree}"/>
+            </div>
+            <span class="text-danger col-12" th:if="${#fields.hasErrors('duree')}">
 			<ul>
 				<li th:each="erreur: ${#fields.errors('duree')}" th:text="${erreur}"></li>
 			</ul>
 		</span>
 
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <label>Genre</label>
-        <select class="form-control" required th:field=*{genre} >
-          <option th:each="genre:${@filmContextApplication.getGenres()}"
-                  th:value="${genre.id}" th:text="${genre.libelle}"></option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <label>Acteurs</label>
-        <select class="form-control" multiple  th:field=*{acteurs} >
-          <option th:each="acteur:${participants}"
-                  th:value="${acteur.id}" th:text="${acteur.prenom + ' ' + acteur.nom}"></option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputSynopsis" class="col-2 control-label">Synopsis</label>
-      <div class="col-10">
-        <textarea class="form-control" id="inputSynopsis" rows="3" th:field="*{synopsis}"  />
-      </div>
-      <span class="text-danger col-12" th:if="${#fields.hasErrors('synopsis')}">
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label>Genre</label>
+                <select class="form-control" required th:field="*{genre}">
+                    <option th:each="genre:${@filmServiceImpl.getGenres()}"
+                            th:value="${genre.id}" th:text="${genre.libelle}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label>Acteurs</label>
+                <select class="form-control" multiple th:field="*{acteurs}">
+                    <option th:each="acteur:${participants}"
+                            th:value="${acteur.id}" th:text="${acteur.prenom + ' ' + acteur.nom}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSynopsis" class="col-2 control-label">Synopsis</label>
+            <div class="col-10">
+                <textarea class="form-control" id="inputSynopsis" rows="3" th:field="*{synopsis}"/>
+            </div>
+            <span class="text-danger col-12" th:if="${#fields.hasErrors('synopsis')}">
 			<ul>
 				<li th:each="erreur: ${#fields.errors('synopsis')}" th:text="${erreur}"></li>
 			</ul>
 		</span>
 
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Ajouter</button>
-      </div>
-    </div>
-
-
-  </form>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Ajouter</button>
+            </div>
+        </div>
+    </form>
 
 </div> <!-- container -->
-<div th:replace="fragments/general.html :: footer"></div>
-
-
+<div id="footer" style="width: 100%;">
+    <footer class="bg-dark p-1">
+        <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                crossorigin="anonymous"></script>
+        <p class="text-light text-center p-4">2023 Copyright © JJ
+            Company. Tout droits réservés.</p>
+    </footer>
+</div>
 </body>
 </html>

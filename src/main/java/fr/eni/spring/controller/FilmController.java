@@ -32,8 +32,6 @@ public class FilmController {
     @GetMapping("/films/ajouter")
     public String afficherAjoutFilm(Model model) {
         model.addAttribute("film", new Film());
-
-
         return "ajout-film";
     }
 

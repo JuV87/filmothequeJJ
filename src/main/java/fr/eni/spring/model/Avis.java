@@ -1,10 +1,17 @@
 package fr.eni.spring.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
+@Entity
 public class Avis {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
     public int note;
     public String commentaire = "";
