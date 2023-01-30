@@ -7,4 +7,8 @@ public class Genre {
 
     public long id = 0;
     public String libelle = "";
+
+    public Genre(long i, String libelle) {
+
+    }
 }

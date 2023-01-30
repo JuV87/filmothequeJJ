@@ -5,8 +5,20 @@ import lombok.Data;
 @Data
 public class Avis {
 
-    public long id = 0;
-    public int note = 0;
+    public long id;
+    public int note;
     public String commentaire = "";
 
+    public Avis() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public Avis(long id, int note, String commentaire) {
+        super();
+        this.id = id;
+        this.note = note;
+        this.commentaire = commentaire;
+    }
+
 }
+
