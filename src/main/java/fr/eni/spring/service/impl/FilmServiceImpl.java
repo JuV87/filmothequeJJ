@@ -89,7 +89,7 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public Genre getGenreById(int genreId) {
-        return null;
+        return genreRepo.findById((long) genreId).get();
     }
 
     @Override
