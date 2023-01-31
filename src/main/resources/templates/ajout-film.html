@@ -110,7 +110,7 @@
             <div class="col-offset-2 col-10">
                 <label>Réalisateur</label>
                 <select class="form-control" required th:field="*{realisateurId}">
-                    <option th:each="realisateur:${@filmServiceImpl.getParticipants()}"
+                    <option th:each="realisateur:${participants}"
                             th:value="${realisateur.id}"
                             th:text="${realisateur.prenom + ' ' + realisateur.nom}"></option>
                 </select>

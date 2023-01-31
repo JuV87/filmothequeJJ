@@ -41,8 +41,8 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public Optional<Film> getMovie(long id) {
-        return Optional.of(repository.findById(id).get());
+    public Film getMovie(long id) {
+        return repository.findById(id).get();
     }
 
     @Override

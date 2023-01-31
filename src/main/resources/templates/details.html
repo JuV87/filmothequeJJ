@@ -65,7 +65,7 @@
 				<strong>Date de sortie : </strong><span th:text="${film.annee}"></span>
 			</p>
 			<!--        <p>Starring: <span th:text="${film.participant}"></span></p>-->
-			<p>Genre: <span th:text="${film.genre}"></span></p>
+			<p><strong>Genre: </strong><span th:text="${film.genre.getLibelle()}"></span></p>
 			<p>
 				<strong>Durée : </strong><span th:text="${film.duree}"></span>
 			</p>

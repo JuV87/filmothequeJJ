@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface FilmService {
 	
-	Optional<Film> getMovie(long id);
+	Film getMovie(long id);
 
 	List<Film> getAllMovies();
 
