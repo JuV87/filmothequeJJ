@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Data
@@ -13,7 +14,7 @@ import java.util.List;
 @Table(name = "Films")
 public class Film {
 
-	public Film(long id, @NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur, Participant acteurs, Avis avis) {
+	public Film(long id, String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur, Participant acteurs, Avis avis) {
 		this.id = id;
 		this.titre = titre;
 		this.annee = annee;
@@ -25,7 +26,7 @@ public class Film {
 
 	}
 
-	public Film(long id, @NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur) {
+	public Film(long id, String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur) {
 		this.id = id;
 		this.titre = titre;
 		this.annee = annee;
@@ -46,7 +47,7 @@ public class Film {
 		this.acteurs = new ArrayList<>();
 	}
 
-	public Film(long id, @NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur, List<Participant> acteurs) {
+	public Film(long id,String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur, List<Participant> acteurs) {
 		this.id = id;
 		this.titre = titre;
 		this.annee = annee;
@@ -57,9 +58,10 @@ public class Film {
 		this.acteurs = acteurs;
 	}
 
-	public Film(@NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur) {
+	public Film(String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur) {
 
 	}
+
 
 	public void addActeur(Participant acteur) {
 		this.acteurs.add(acteur);

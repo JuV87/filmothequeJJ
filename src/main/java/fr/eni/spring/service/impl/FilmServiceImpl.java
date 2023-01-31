@@ -7,7 +7,6 @@ import fr.eni.spring.repository.FilmRepo;
 import fr.eni.spring.repository.GenreRepo;
 import fr.eni.spring.repository.ParticipantRepo;
 import fr.eni.spring.service.FilmService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,11 +16,9 @@ import java.util.List;
 public class FilmServiceImpl implements FilmService {
 
 
-    private FilmRepo repository;
-    private GenreRepo genreRepo;
+    private final GenreRepo genreRepo;
 
-    private ParticipantRepo participantRepo;
-    private List<Film> listFilm = new ArrayList<Film>();
+    private final List<Film> listFilm = new ArrayList<Film>();
 
     public FilmServiceImpl(FilmRepo repository, GenreRepo genreRepo, ParticipantRepo participantRepo) {
 
@@ -31,7 +28,6 @@ public class FilmServiceImpl implements FilmService {
         genreRepo.save(new Genre("action"));
         genreRepo.save(new Genre("drama"));
 
-        this.participantRepo = participantRepo;
         participantRepo.save(new Participant("Wilder", "Billy"));
         participantRepo.save(new Participant("Welsh", "Pat"));
         participantRepo.save(new Participant("Monroe", "Marylin"));
@@ -39,8 +35,7 @@ public class FilmServiceImpl implements FilmService {
         participantRepo.save(new Participant("Georgette", "Dupont"));
 
 
-        this.repository = repository;
-        repository.save(new Film("Harry Pouter", 2001, 140, "Je suis un synopsis", genreRepo.findById(1L), participantRepo.getReferenceById((long)(1))));
+        repository.save(new Film("Harry Pouter", 2001, 140, "Je suis un synopsis", genreRepo.findById(1L).get() , participantRepo.findById(1L).get()));
      //  repository.save(new Film("Le seigneur des anneaux", 2003, 300, "Je suis un synopsis intéressant", 2, 2 ));
      //  repository.save(new Film("Les 101 dalmatiens", 1960, 200, "Je suis intéressant", 3, 3 ));
      //  repository.save(new Film("Harry Pouter", 2001, 140, "Je suis un synopsis", 2, 4));
