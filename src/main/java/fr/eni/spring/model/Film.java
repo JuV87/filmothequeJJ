@@ -85,12 +85,8 @@ public class Film {
 //	private List<Avis> avis;
     @ManyToOne
     private Genre genre;
-    @ManyToOne(
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            fetch = FetchType.EAGER
-    )
-    @JoinTable(name = "realisateur_film",
-            joinColumns = {@JoinColumn(name = "film_id")}, inverseJoinColumns = {@JoinColumn(name = "realisateur_id")})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "realisateur_film", joinColumns = {@JoinColumn(name = "film_id")}, inverseJoinColumns = {@JoinColumn(name = "realisateur_id")})
     private Participant realisateur;
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "acteurs_film", joinColumns = {@JoinColumn(name = "film_id")}, inverseJoinColumns = {@JoinColumn(name = "acteurparticipant_id")})

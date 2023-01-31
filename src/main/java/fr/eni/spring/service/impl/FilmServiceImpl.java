@@ -80,7 +80,7 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public List<Participant> getParticipants() {
         if(acteurs==null) {
-            acteurs = new ArrayList<Participant>();
+            acteurs = new ArrayList<>();
             acteurs = participantRepo.findAll();
 
         }
@@ -108,7 +108,5 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public void ajouterFilm(Film film) {
         repository.save(film);
-
-
     }
 }
