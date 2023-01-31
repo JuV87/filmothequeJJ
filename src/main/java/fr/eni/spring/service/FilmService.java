@@ -5,14 +5,15 @@ import fr.eni.spring.model.Genre;
 import fr.eni.spring.model.Participant;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FilmService {
 	
-	Film getMovie(long id);
+	Optional<Film> getMovie(long id);
 
 	List<Film> getAllMovies();
-	
-	Film addMovie();
+
+	Film addMovie(Film film);
 
 	List<Genre> getGenres();
 

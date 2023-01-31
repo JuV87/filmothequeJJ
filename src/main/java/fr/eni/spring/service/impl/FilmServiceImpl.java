@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FilmServiceImpl implements FilmService {
 
-
+    private final FilmRepo repository;
     private final GenreRepo genreRepo;
+    private final ParticipantRepo participantRepo;
 
     private final List<Film> listFilm = new ArrayList<Film>();
 
@@ -28,41 +30,30 @@ public class FilmServiceImpl implements FilmService {
         genreRepo.save(new Genre("action"));
         genreRepo.save(new Genre("drama"));
 
+        this.participantRepo = participantRepo;
         participantRepo.save(new Participant("Wilder", "Billy"));
         participantRepo.save(new Participant("Welsh", "Pat"));
         participantRepo.save(new Participant("Monroe", "Marylin"));
         participantRepo.save(new Participant("Thomas", "Henry"));
         participantRepo.save(new Participant("Georgette", "Dupont"));
 
-
-        repository.save(new Film("Harry Pouter", 2001, 140, "Je suis un synopsis", genreRepo.findById(1L).get() , participantRepo.findById(1L).get()));
-     //  repository.save(new Film("Le seigneur des anneaux", 2003, 300, "Je suis un synopsis intéressant", 2, 2 ));
-     //  repository.save(new Film("Les 101 dalmatiens", 1960, 200, "Je suis intéressant", 3, 3 ));
-     //  repository.save(new Film("Harry Pouter", 2001, 140, "Je suis un synopsis", 2, 4));
-     //  repository.save(new Film("Peur bleue", 2004, 270, "Je suis", 4, 1));
+         this.repository = repository;
     }
 
     @Override
-    public Film getMovie(long id) {
-        // TODO Boucle for pour retrouver le film avec l'id
-
-        for(Film f: listFilm) {
-            if(f.getId()==id){
-                return f;
-            }
-        }
-        return null;
+    public Optional<Film> getMovie(long id) {
+        return Optional.of(repository.findById(id).get());
     }
 
     @Override
     public List<Film> getAllMovies() {
-        return listFilm;
+        return repository.findAll();
     }
 
     @Override
-    public Film addMovie() {
+    public Film addMovie(Film film) {
         // TODO Auto-generated method stub
-        return null;
+    return repository.save(film);
     }
 
 
@@ -70,11 +61,8 @@ public class FilmServiceImpl implements FilmService {
 
     private List<Film> films ;
     private List<Genre> genres;
-    private List<Participant> participants;
-
-
-
-    int compteurFilm = 2;
+    private List<Participant> realisateur;
+    private List<Participant> acteurs;
 
 
 
@@ -91,33 +79,36 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<Participant> getParticipants() {
-        return participants;
+        if(acteurs==null) {
+            acteurs = new ArrayList<Participant>();
+            acteurs = participantRepo.findAll();
+
+        }
+        return acteurs;
     }
 
     @Override
     public Genre getGenreById(int genreId) {
-        for(Genre g: genres) {
-            if(genreId==g.getId()) {
-                return g;
-            }
-        }
         return null;
     }
 
     @Override
     public Participant getParticipantById(int realisateurId) {
-        for(Participant p: participants) {
-            if(realisateurId==p.getId()) {
-                return p;
-            }
-        }
         return null;
+    }
+
+    public Optional<Genre> getGenreById(Long genreId) {
+        return genreRepo.findById(genreId);
+    }
+
+    public Optional<Participant> getParticipantById(long realisateurId) {
+            return participantRepo.findById(realisateurId);
     }
 
     @Override
     public void ajouterFilm(Film film) {
-        film.setId(compteurFilm++);
-        films.add(film);
+        repository.save(film);
+
 
     }
 }

@@ -75,7 +75,7 @@
 <div class="container">
 
     <form class="form-horizontal form"
-          th:object="${film}"
+          th:object="${filmForm}"
           th:action="@{/films/ajouter}" method="post">
 
         <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
@@ -109,9 +109,10 @@
         <div class="form-group">
             <div class="col-offset-2 col-10">
                 <label>Réalisateur</label>
-                <select class="form-control" required th:field="*{realisateur}">
-                    <option th:each="real:${participants}"
-                            th:value="${real.id}" th:text="${real.prenom + ' ' + real.nom}"></option>
+                <select class="form-control" required th:field="*{realisateurId}">
+                    <option th:each="realisateur:${@filmServiceImpl.getParticipants()}"
+                            th:value="${realisateur.id}"
+                            th:text="${realisateur.prenom + ' ' + realisateur.nom}"></option>
                 </select>
             </div>
             <span class="text-danger col-12" th:if="${#fields.hasErrors('realisateur')}">
@@ -138,7 +139,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <label>Genre</label>
-                <select class="form-control" required th:field="*{genre}">
+                <select class="form-control" required th:field="*{genreId}">
                     <option th:each="genre:${@filmServiceImpl.getGenres()}"
                             th:value="${genre.id}" th:text="${genre.libelle}"></option>
                 </select>
@@ -147,7 +148,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <label>Acteurs</label>
-                <select class="form-control" multiple th:field="*{acteurs}">
+                <select class="form-control" multiple th:field="*{acteursId}">
                     <option th:each="acteur:${participants}"
                             th:value="${acteur.id}" th:text="${acteur.prenom + ' ' + acteur.nom}"></option>
                 </select>
@@ -156,7 +157,7 @@
         <div class="form-group">
             <label for="inputSynopsis" class="col-2 control-label">Synopsis</label>
             <div class="col-10">
-                <textarea class="form-control" id="inputSynopsis" rows="3" th:field="*{synopsis}"/>
+                <textarea class="form-control" id="inputSynopsis" rows="3" th:field="*{synopsis}"></textarea>
             </div>
             <span class="text-danger col-12" th:if="${#fields.hasErrors('synopsis')}">
 			<ul>
