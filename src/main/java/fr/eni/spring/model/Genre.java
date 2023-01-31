@@ -1,6 +1,8 @@
 package fr.eni.spring.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -10,6 +12,7 @@ import lombok.Data;
 public class Genre {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id = 0;
     public String libelle = "";
 
@@ -20,5 +23,9 @@ public class Genre {
 
     public Genre() {
 
+    }
+
+    public Genre(String libelle) {
+        this.libelle = libelle;
     }
 }

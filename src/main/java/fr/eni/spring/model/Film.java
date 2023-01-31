@@ -46,6 +46,21 @@ public class Film {
 		this.acteurs = new ArrayList<>();
 	}
 
+	public Film(long id, @NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur, List<Participant> acteurs) {
+		this.id = id;
+		this.titre = titre;
+		this.annee = annee;
+		this.duree = duree;
+		this.synopsis = synopsis;
+		this.genre = genre;
+		this.realisateur = realisateur;
+		this.acteurs = acteurs;
+	}
+
+	public Film(@NotNull String titre, int annee, int duree, String synopsis, Genre genre, Participant realisateur) {
+
+	}
+
 	public void addActeur(Participant acteur) {
 		this.acteurs.add(acteur);
 	}

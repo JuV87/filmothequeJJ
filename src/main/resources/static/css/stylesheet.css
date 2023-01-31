@@ -31,5 +31,8 @@ html, body {
 	opacity: 0.995;
 	background-color: rgb(47, 48, 97, 0.85);
     backdrop-filter: blur(15px) saturate(160%) contrast(45%) brightness(140%);
+}
 
+.form {
+	margin-top: 100px
 }

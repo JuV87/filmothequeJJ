@@ -3,7 +3,11 @@ package fr.eni.spring.service.impl;
 import fr.eni.spring.model.Film;
 import fr.eni.spring.model.Genre;
 import fr.eni.spring.model.Participant;
+import fr.eni.spring.repository.FilmRepo;
+import fr.eni.spring.repository.GenreRepo;
+import fr.eni.spring.repository.ParticipantRepo;
 import fr.eni.spring.service.FilmService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,40 +16,35 @@ import java.util.List;
 @Service
 public class FilmServiceImpl implements FilmService {
 
+
+    private FilmRepo repository;
+    private GenreRepo genreRepo;
+
+    private ParticipantRepo participantRepo;
     private List<Film> listFilm = new ArrayList<Film>();
 
-    public FilmServiceImpl() {
+    public FilmServiceImpl(FilmRepo repository, GenreRepo genreRepo, ParticipantRepo participantRepo) {
+
+        this.genreRepo = genreRepo;
+        genreRepo.save(new Genre("comedie"));
+        genreRepo.save(new Genre("science fiction"));
+        genreRepo.save(new Genre("action"));
+        genreRepo.save(new Genre("drama"));
+
+        this.participantRepo = participantRepo;
+        participantRepo.save(new Participant("Wilder", "Billy"));
+        participantRepo.save(new Participant("Welsh", "Pat"));
+        participantRepo.save(new Participant("Monroe", "Marylin"));
+        participantRepo.save(new Participant("Thomas", "Henry"));
+        participantRepo.save(new Participant("Georgette", "Dupont"));
 
 
-        Film film = new Film(0, "Harry Pouter", 2001, 140, "Je suis un synopsis", comedie, spielberg);
-        Film film2 = new Film(1, "Le seigneur des anneaux", 2003, 300, "Je suis un synopsis intéressant", action, spielberg );
-        Film film3 = new Film(2, "Taxi", 1995, 240, "Je suis un synopsis pas intéressant", comedie, spielberg);
-        Film film4 = new Film(3, "Les 101 dalmatiens", 1960, 200, "Je suis intéressant", action, spielberg );
-        Film film5 = new Film(4, "Peur bleue", 2004, 270, "Je suis", scienceFiction, spielberg);
-
-
-        film.addActeur(archainbaud);
-        film.addActeur(henryThomas);
-        film.addActeur(marylin);
-
-        film2.addActeur(archainbaud);
-
-        film3.addActeur(tony);
-        film3.addActeur(jack);
-
-        film4.addActeur(iti);
-        film4.addActeur(shirley);
-
-        film5.addActeur(archainbaud);
-        film5.addActeur(jack);
-        film5.addActeur(shirley);
-
-        listFilm.add(film);
-        listFilm.add(film2);
-        listFilm.add(film3);
-        listFilm.add(film4);
-        listFilm.add(film5);
-
+        this.repository = repository;
+        repository.save(new Film("Harry Pouter", 2001, 140, "Je suis un synopsis", genreRepo.findById(1L), participantRepo.getReferenceById((long)(1))));
+     //  repository.save(new Film("Le seigneur des anneaux", 2003, 300, "Je suis un synopsis intéressant", 2, 2 ));
+     //  repository.save(new Film("Les 101 dalmatiens", 1960, 200, "Je suis intéressant", 3, 3 ));
+     //  repository.save(new Film("Harry Pouter", 2001, 140, "Je suis un synopsis", 2, 4));
+     //  repository.save(new Film("Peur bleue", 2004, 270, "Je suis", 4, 1));
     }
 
     @Override
@@ -71,15 +70,7 @@ public class FilmServiceImpl implements FilmService {
         return null;
     }
 
-    Participant archainbaud = new Participant(0, "Wilder", "Billy");
-    Participant spielberg = new Participant(1, "Spielberg", "Steven");
-    Participant patWelsh = new Participant(2, "Welsh", "Pat");
-    Participant henryThomas = new Participant(3, "Thomas", "Henry");
-    Participant marylin = new Participant(4, "Monroe", "Marylin");
-    Participant tony = new Participant(5, "Curtis", "Tony");
-    Participant jack = new Participant(6, "Lemmon", "Jack");
-    Participant iti = new Participant(7, "Ti", "i");
-    Participant shirley = new Participant(8, "Shirley", "MacLane");
+
 
 
     private List<Film> films ;
@@ -87,9 +78,6 @@ public class FilmServiceImpl implements FilmService {
     private List<Participant> participants;
 
 
-    Genre comedie = new Genre(0, "comedie");
-    Genre scienceFiction = new Genre(1, "science fiction");
-    Genre action = new Genre(2, "action");
 
     int compteurFilm = 2;
 
@@ -100,8 +88,7 @@ public class FilmServiceImpl implements FilmService {
     public List<Genre> getGenres() {
         if(genres==null) {
             genres = new ArrayList<Genre>();
-            genres.add(comedie);
-            genres.add(scienceFiction);
+            genres = genreRepo.findAll();
 
         }
         return genres;
@@ -109,17 +96,6 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<Participant> getParticipants() {
-        if(participants==null) {
-            participants = new ArrayList<Participant>();
-            participants.add(archainbaud);
-            participants.add(spielberg);
-            participants.add(patWelsh);
-            participants.add(henryThomas);
-            participants.add(marylin);
-            participants.add(tony);
-            participants.add(jack);
-            participants.add(shirley);
-        }
         return participants;
     }
 

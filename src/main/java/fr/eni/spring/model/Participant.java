@@ -1,6 +1,8 @@
 package fr.eni.spring.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -18,7 +20,13 @@ public class Participant {
 
     }
     @Id
-    public long id = 0;
-    public String nom = "";
-    public String prenom = "";
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long id;
+    public String nom;
+    public String prenom;
+
+    public Participant(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+    }
 }

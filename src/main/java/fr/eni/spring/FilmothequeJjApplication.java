@@ -9,6 +9,7 @@ public class FilmothequeJjApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(FilmothequeJjApplication.class, args);
+
 	}
 
 }

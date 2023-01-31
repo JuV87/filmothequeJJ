@@ -66,11 +66,15 @@
     <li role="presentation"><a th:href="@{/films}">Les films</a></li>
     <li role="presentation" class="active"><a href="#">Ajouter un film</a></li>
 </ul>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1>Nouveau film</h1>
 <div class="container">
 
-    <form class="form-horizontal"
+    <form class="form-horizontal form"
           th:object="${film}"
           th:action="@{/films/ajouter}" method="post">
 
