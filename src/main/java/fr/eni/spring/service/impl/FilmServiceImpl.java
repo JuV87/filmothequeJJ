@@ -94,7 +94,6 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public Participant getParticipantById(int realisateurId) {
-
         return participantRepo.findById((long) realisateurId).get();
     }
 
